@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.machnv.navigation.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_listItem"
+            app:destination="@id/navigation2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.machnv.navigation.fragment.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.machnv.navigation.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.machnv.navigation.fragment.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <navigation
+        android:id="@+id/navigation2"
+        app:startDestination="@id/listItemFragment">
+        <fragment
+            android:id="@+id/listItemFragment"
+            android:name="com.machnv.navigation.fragment.ListItemFragment"
+            android:label="fragment_list_item"
+            tools:layout="@layout/fragment_list_item">
+
+            <action
+                android:id="@+id/action_listItem_to_detailItem"
+                app:destination="@+id/detailItemFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right">
+
+                <argument android:name="item"
+                    app:argType="com.machnv.navigation.data.Item"/>
+            </action>
+
+        </fragment>
+        <fragment
+            android:id="@+id/detailItemFragment"
+            android:name="com.machnv.navigation.fragment.DetailItemFragment"
+            android:label="fragment_detail_item"
+            tools:layout="@layout/fragment_detail_item" />
+    </navigation>
+</navigation>
