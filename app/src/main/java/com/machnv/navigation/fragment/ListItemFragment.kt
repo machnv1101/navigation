@@ -19,7 +19,7 @@ class ListItemFragment : Fragment(), ListAdapter.ItemProductClickListener {
     private var listAdapter = ListAdapter()
 
     private val viewModel: ListItemViewModel by lazy {
-        ViewModelProvider(this)[ListItemViewModel::class.java]
+        ViewModelProvider(requireActivity())[ListItemViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -43,6 +43,7 @@ class ListItemFragment : Fragment(), ListAdapter.ItemProductClickListener {
     }
 
     override fun onItemProductClick(position: Int) {
+        viewModel.selectedItem.postValue(listAdapter.listItem[position])
         findNavController().navigate(
             ListItemFragmentDirections.actionListItemToDetailItem(item = listAdapter.listItem[position])
         )

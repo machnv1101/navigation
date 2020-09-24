@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.machnv.navigation.R
 import com.machnv.navigation.databinding.FragmentDetailItemBinding
-import com.machnv.navigation.viewmodel.DetailItemViewModel
+import com.machnv.navigation.viewmodel.ListItemViewModel
 
 class DetailItemFragment : Fragment() {
 
-    private val viewModel: DetailItemViewModel by lazy {
-        ViewModelProvider(this)[DetailItemViewModel::class.java]
+    private val viewModel: ListItemViewModel by lazy {
+        ViewModelProvider(requireActivity())[ListItemViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -26,13 +26,6 @@ class DetailItemFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_detail_item, container, false)
 
         binding.viewModel = viewModel
-
-        val args = arguments?.let {
-            DetailItemFragmentArgs.fromBundle(it)
-        }
-        args?.let {
-            viewModel.setData(it.item)
-        }
 
         return binding.root
     }

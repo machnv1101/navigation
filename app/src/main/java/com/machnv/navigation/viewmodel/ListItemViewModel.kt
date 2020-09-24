@@ -1,5 +1,6 @@
 package com.machnv.navigation.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.machnv.navigation.data.Item
 
@@ -13,4 +14,6 @@ class ListItemViewModel: ViewModel() {
         }
         return list
     }
+
+    var selectedItem: MutableLiveData<Item> = MutableLiveData(Item())
 }
