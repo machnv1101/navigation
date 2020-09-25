@@ -43,7 +43,10 @@ class ListItemFragment : Fragment(), ListAdapter.ItemProductClickListener {
     }
 
     override fun onItemProductClick(position: Int) {
-        viewModel.selectedItem.postValue(listAdapter.listItem[position])
+        val item = listAdapter.listItem[position]
+        viewModel.setNameProduct(item.name?:"")
+        viewModel.setIdProduct(item.id?: 0)
+
         findNavController().navigate(
             ListItemFragmentDirections.actionListItemToDetailItem(item = listAdapter.listItem[position])
         )

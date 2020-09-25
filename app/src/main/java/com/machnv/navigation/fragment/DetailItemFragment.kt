@@ -5,11 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.Observable
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.machnv.navigation.MainActivity
 import com.machnv.navigation.R
 import com.machnv.navigation.databinding.FragmentDetailItemBinding
 import com.machnv.navigation.viewmodel.ListItemViewModel
+import kotlinx.android.synthetic.main.fragment_detail_item.*
 
 class DetailItemFragment : Fragment() {
 

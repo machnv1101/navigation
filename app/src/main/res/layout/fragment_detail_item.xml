@@ -20,7 +20,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="Detail Item Fragment"
             android:textSize="30sp" />
 
@@ -30,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="@{viewModel.selectedItem.name}"
+            android:text="@{viewModel.nameProduct}"
             android:textColor="@android:color/black"
             android:textSize="24sp" />
 
@@ -40,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="@{viewModel.selectedItem.id.toString()}"
+            android:text="@{viewModel.idProduct.toString()}"
             android:textSize="16sp" />
 
         <TextView
@@ -49,9 +48,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="@{viewModel.selectedItem.id.toString()}"
+            android:text="@{viewModel.idProduct.toString()}"
             android:textSize="16sp"
-            app:isOddId="@{viewModel.selectedItem.id}" />
+            app:isOddId="@{viewModel.idProduct}" />
+
+        <Button
+            android:id="@+id/btnChangeId"
+            android:text="Change ID"
+            android:onClick="@{() -> viewModel.onClickTitleDetailItemFragment()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </layout>

@@ -15,5 +15,19 @@ class ListItemViewModel: ViewModel() {
         return list
     }
 
-    var selectedItem: MutableLiveData<Item> = MutableLiveData(Item())
+    private val nameProduct = MutableLiveData("")
+    private val idProduct = MutableLiveData(0)
+
+    fun getNameProduct() = nameProduct
+    fun getIdProduct() = idProduct
+    fun setNameProduct(name: String) {
+        nameProduct.value = name
+    }
+    fun setIdProduct(id: Int) {
+        idProduct.value = id
+    }
+
+    fun onClickTitleDetailItemFragment() {
+        setNameProduct("sdhfjsdhf")
+    }
 }
